@@ -8,6 +8,7 @@ export type UserPayload = {
   id: string
   name: string
   email: string
+  role?: string
 }
 
 export async function hashPassword(password: string): Promise<string> {

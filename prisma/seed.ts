@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client'
+import bcrypt from 'bcryptjs'
 
 const prisma = new PrismaClient()
 
@@ -63,10 +64,22 @@ const books = [
 
 async function main() {
   await prisma.book.deleteMany()
+
   for (const book of books) {
     await prisma.book.create({ data: book })
   }
   console.log('Livros criados com sucesso!')
+
+  const existing = await prisma.user.findUnique({ where: { email: 'admin@admin.com' } })
+  if (!existing) {
+    const hash = await bcrypt.hash('admin123', 10)
+    await prisma.user.create({
+      data: { name: 'Administrador', email: 'admin@admin.com', password: hash, role: 'admin' },
+    })
+    console.log('Admin criado: admin@admin.com / admin123')
+  } else {
+    console.log('Admin já existe')
+  }
 }
 
 main()

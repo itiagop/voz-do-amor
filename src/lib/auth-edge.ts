@@ -4,6 +4,7 @@ export type UserPayload = {
   id: string
   name: string
   email: string
+  role?: string
 }
 
 async function base64UrlEncode(data: Uint8Array): Promise<string> {
@@ -62,7 +63,7 @@ export async function verifyToken(token: string): Promise<UserPayload | null> {
     const now = Math.floor(Date.now() / 1000)
     if (body.exp && body.exp < now) return null
 
-    return { id: body.id, name: body.name, email: body.email }
+    return { id: body.id, name: body.name, email: body.email, role: body.role }
   } catch {
     return null
   }

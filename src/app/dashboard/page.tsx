@@ -28,6 +28,7 @@ type UserData = {
   id: string
   name: string
   email: string
+  role?: string
   readers: Reader[]
   childs: Child[]
 }
@@ -125,9 +126,14 @@ export default function DashboardPage() {
       <header className="max-w-6xl mx-auto mb-10">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl md:text-4xl font-display font-bold text-gradient">
-              Olá, {user?.name?.split(' ')[0]}!
-            </h1>
+              <h1 className="text-3xl md:text-4xl font-display font-bold text-gradient">
+                Olá, {user?.name?.split(' ')[0]}!
+                {user?.role === 'admin' && (
+                  <span className="ml-3 text-sm font-sans font-semibold text-white bg-warmth-500 px-3 py-1 rounded-full align-middle">
+                    Admin
+                  </span>
+                )}
+              </h1>
             <p className="text-cozy-500 mt-1 text-lg">
               Aqui você cria histórias que ficam pra sempre
             </p>

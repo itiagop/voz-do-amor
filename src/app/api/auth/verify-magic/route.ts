@@ -34,11 +34,11 @@ export async function POST(request: Request) {
     })
 
     const user = magicLink.user!
-    const jwt = generateToken({ id: user.id, name: user.name, email: user.email })
+    const jwt = generateToken({ id: user.id, name: user.name, email: user.email, role: user.role })
 
     const response = NextResponse.json({
       token: jwt,
-      user: { id: user.id, name: user.name, email: user.email },
+      user: { id: user.id, name: user.name, email: user.email, role: user.role },
     })
 
     response.cookies.set('token', jwt, {
