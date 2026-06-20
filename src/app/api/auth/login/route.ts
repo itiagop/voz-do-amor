@@ -23,7 +23,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Email ou senha incorretos' }, { status: 401 })
     }
 
-    const token = generateToken({ id: user.id, name: user.name, email: user.email, role: user.role })
+    const token = await generateToken({ id: user.id, name: user.name, email: user.email, role: user.role })
 
     const response = NextResponse.json({
       token,

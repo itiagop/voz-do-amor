@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic'
 
 export async function GET() {
   try {
-    const payload = getUserFromCookies()
+    const payload = await getUserFromCookies()
     if (!payload) {
       return NextResponse.json({ error: 'Não autorizado' }, { status: 401 })
     }

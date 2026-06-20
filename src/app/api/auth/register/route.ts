@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       data: { name, email, password: hashedPassword },
     })
 
-    const token = generateToken({ id: user.id, name: user.name, email: user.email, role: user.role })
+    const token = await generateToken({ id: user.id, name: user.name, email: user.email, role: user.role })
 
     const response = NextResponse.json({
       token,

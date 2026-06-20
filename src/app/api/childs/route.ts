@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic'
 
 export async function GET() {
   try {
-    const user = getUserFromCookies()
+    const user = await getUserFromCookies()
     if (!user) {
       return NextResponse.json({ error: 'Não autorizado' }, { status: 401 })
     }
@@ -36,7 +36,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const user = getUserFromCookies()
+    const user = await getUserFromCookies()
     if (!user) {
       return NextResponse.json({ error: 'Não autorizado' }, { status: 401 })
     }

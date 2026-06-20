@@ -1,15 +1,9 @@
 import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
 import { cookies } from 'next/headers'
+import { generateToken as edgeGenerate, verifyToken as edgeVerify } from './auth-edge'
+import type { UserPayload } from './auth-edge'
 
-const JWT_SECRET = process.env.JWT_SECRET || 'voz-que-fica-secret-key-2026'
-
-export type UserPayload = {
-  id: string
-  name: string
-  email: string
-  role?: string
-}
+export type { UserPayload }
 
 export async function hashPassword(password: string): Promise<string> {
   return bcrypt.hash(password, 10)
@@ -19,16 +13,12 @@ export async function verifyPassword(password: string, hash: string): Promise<bo
   return bcrypt.compare(password, hash)
 }
 
-export function generateToken(payload: UserPayload): string {
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: '7d' })
+export async function generateToken(payload: UserPayload): Promise<string> {
+  return edgeGenerate(payload)
 }
 
-export function verifyToken(token: string): UserPayload | null {
-  try {
-    return jwt.verify(token, JWT_SECRET) as UserPayload
-  } catch {
-    return null
-  }
+export async function verifyToken(token: string): Promise<UserPayload | null> {
+  return edgeVerify(token)
 }
 
 export function getTokenFromCookies(): string | undefined {
@@ -36,8 +26,8 @@ export function getTokenFromCookies(): string | undefined {
   return cookieStore.get('token')?.value
 }
 
-export function getUserFromCookies(): UserPayload | null {
+export async function getUserFromCookies(): Promise<UserPayload | null> {
   const token = getTokenFromCookies()
   if (!token) return null
-  return verifyToken(token)
+  return edgeVerify(token)
 }

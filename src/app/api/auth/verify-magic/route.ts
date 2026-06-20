@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     })
 
     const user = magicLink.user!
-    const jwt = generateToken({ id: user.id, name: user.name, email: user.email, role: user.role })
+    const jwt = await generateToken({ id: user.id, name: user.name, email: user.email, role: user.role })
 
     const response = NextResponse.json({
       token: jwt,
