@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { verifyToken } from './lib/auth'
+import { verifyToken } from './lib/auth-edge'
 
 const publicRoutes = ['/', '/login', '/register', '/api/auth/login', '/api/auth/register', '/share', '/api/share', '/magic']
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   if (pathname.startsWith('/_next') || pathname.startsWith('/favicon') || pathname.startsWith('/uploads') || pathname.startsWith('/books')) {
@@ -20,7 +20,7 @@ export function middleware(request: NextRequest) {
 
   const token = request.cookies.get('token')?.value
 
-  if (!token || !verifyToken(token)) {
+  if (!token || !(await verifyToken(token))) {
     if (pathname.startsWith('/api/')) {
       return NextResponse.json({ error: 'Não autorizado' }, { status: 401 })
     }
