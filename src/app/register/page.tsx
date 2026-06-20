@@ -12,6 +12,7 @@ export default function RegisterPage() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [mode, setMode] = useState<'senha' | 'magic'>('senha')
   const [magicSent, setMagicSent] = useState(false)
@@ -19,6 +20,12 @@ export default function RegisterPage() {
 
   async function handlePasswordRegister(e: React.FormEvent) {
     e.preventDefault()
+
+    if (password !== confirmPassword) {
+      toast.error('Senhas não conferem')
+      return
+    }
+
     setLoading(true)
 
     try {
@@ -158,6 +165,11 @@ export default function RegisterPage() {
                       <label className="input-label">Senha</label>
                       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}
                         className="input-field" placeholder="Mínimo 6 caracteres" minLength={6} required />
+                    </div>
+                    <div>
+                      <label className="input-label">Confirmar senha</label>
+                      <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
+                        className="input-field" placeholder="Digite a senha novamente" minLength={6} required />
                     </div>
                     <button type="submit" disabled={loading} className="btn-primary w-full text-lg">
                       {loading ? 'Criando...' : 'Criar conta'}

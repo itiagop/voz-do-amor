@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -12,7 +12,7 @@ model User {
   name      String
   email     String   @unique
   password  String?
-  avatar    String?
+  avatar    String? @db.Text
   createdAt DateTime @default(now())
 
   readers    Reader[]
@@ -23,7 +23,7 @@ model User {
 model Reader {
   id        String   @id @default(cuid())
   name      String
-  avatar    String?
+  avatar    String? @db.Text
   relation  String?
   createdAt DateTime @default(now())
 
@@ -35,7 +35,7 @@ model Reader {
 model Child {
   id        String   @id @default(cuid())
   name      String
-  avatar    String?
+  avatar    String? @db.Text
   age       Int?
   color     String   @default("#FF6B6B")
   shareCode String?  @unique
@@ -50,10 +50,10 @@ model Book {
   id          String   @id @default(cuid())
   title       String
   author      String   @default("")
-  cover       String?
-  coverKey    String?
+  cover       String? @db.Text
+  coverKey    String? @db.Text
   pageCount   Int      @default(0)
-  description String?
+  description String? @db.Text
   category    String   @default("infantil")
   createdAt   DateTime @default(now())
 
@@ -83,7 +83,7 @@ model Recording {
 model PageRecording {
   id         String   @id @default(cuid())
   pageNumber Int
-  audioUrl   String?
+  audioUrl   String? @db.Text
   duration   Float    @default(0)
   createdAt  DateTime @default(now())
 
