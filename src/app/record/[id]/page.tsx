@@ -179,9 +179,8 @@ export default function RecordPage() {
 
       if (currentPageIndex < totalPages - 1) {
         setCurrentPageIndex(currentPageIndex + 1)
-        toast.success('Página salva!')
+        toast.success('Página salva! ✨')
       } else {
-        // Finalizou
         await fetch(`/api/recordings/${params.id}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
@@ -205,48 +204,66 @@ export default function RecordPage() {
       audioRef.current = new Audio()
     }
     setIsPlaying(false)
-    // Re-ler a página
     loadRecording()
   }
 
   if (loading) {
     return (
-      <div className="page-container flex items-center justify-center min-h-screen">
-        <div className="w-12 h-12 border-4 border-warmth-300 border-t-warmth-500 rounded-full animate-spin" />
+      <div className="page-container flex items-center justify-center min-h-[60vh]">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-[#FFE4D6] border-t-[#FF6B35] rounded-full animate-spin mx-auto mb-4" />
+          <p className="text-[#A0897A] text-lg">Carregando...</p>
+        </div>
       </div>
     )
   }
 
   if (!recording) {
     return (
-      <div className="page-container flex items-center justify-center min-h-screen">
-        <p className="text-cozy-500">Gravação não encontrada</p>
+      <div className="page-container flex items-center justify-center min-h-[60vh]">
+        <div className="text-center">
+          <span className="text-6xl block mb-4">😢</span>
+          <p className="text-[#A0897A] text-lg">Gravação não encontrada</p>
+          <Link href="/books" className="btn-primary mt-6 inline-block">Voltar aos livros</Link>
+        </div>
       </div>
     )
   }
 
   if (completed) {
     return (
-      <div className="page-container flex items-center justify-center p-4">
+      <div className="page-container flex items-center justify-center p-4 min-h-[80vh]">
         <div className="max-w-md text-center">
           <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
             transition={{ type: 'spring', stiffness: 200, damping: 15 }}
           >
             <span className="text-8xl block mb-6">🎉</span>
           </motion.div>
-          <h2 className="text-3xl font-display font-bold text-cozy-800 mb-3">
-            História Gravada!
-          </h2>
-          <p className="text-cozy-500 text-lg mb-8">
-            "{recording.book.title}" foi gravada com a voz de {recording.reader.name}. Essa história vai ficar para sempre!
-          </p>
-          <div className="flex flex-col gap-3">
-            <Link href="/dashboard" className="btn-primary text-lg">
-              Voltar ao início
-            </Link>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <span className="badge-fun mb-4">✨ História finalizada!</span>
+            <h2 className="text-3xl font-bold text-[#4A3728] mb-3 mt-4">
+              Parabéns! 🎊
+            </h2>
+            <p className="text-[#6B5744] text-lg mb-8 leading-relaxed">
+              &ldquo;{recording.book.title}&rdquo; foi gravada com a voz de{' '}
+              <strong className="text-[#FF6B35]">{recording.reader.name}</strong>.
+              <br />Essa história vai ficar para sempre! 💛
+            </p>
+            <div className="flex flex-col gap-3">
+              <Link href="/dashboard" className="btn-primary text-lg">
+                Voltar ao início
+              </Link>
+              <Link href="/books" className="btn-outline">
+                Gravar outra história
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </div>
     )
@@ -254,76 +271,117 @@ export default function RecordPage() {
 
   return (
     <div className="page-container min-h-screen p-4 md:p-8">
-      <div className="max-w-2xl mx-auto">
-        <Link href="/books" className="text-cozy-400 hover:text-cozy-600 mb-6 inline-block">
-          ← Sair da gravação
-        </Link>
+      {/* Decorative bubbles */}
+      <div className="bubble w-32 h-32 bg-[#FF6B35] opacity-5 top-40 left-[-5%]" style={{ animationDelay: '0s' }} />
+      <div className="bubble w-24 h-24 bg-[#45B7D1] opacity-5 top-60 right-[-3%]" style={{ animationDelay: '1s' }} />
 
-        {/* Cabeçalho */}
+      <div className="max-w-2xl mx-auto relative z-10">
+        {/* Top bar */}
+        <div className="flex items-center justify-between mb-6">
+          <Link href="/books" className="text-[#A0897A] hover:text-[#FF6B35] font-semibold transition-colors flex items-center gap-1">
+            <span>←</span> Sair da gravação
+          </Link>
+          <div className="flex items-center gap-2">
+            <span className="badge-ocean text-xs">
+              📖 {recording.book.title}
+            </span>
+          </div>
+        </div>
+
+        {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-display font-bold text-cozy-800 mb-1">
+          <h1 className="text-2xl md:text-3xl font-bold text-[#4A3728] mb-1">
             {recording.book.title}
           </h1>
-          <p className="text-cozy-400">
-            Gravando com {recording.reader.name}
+          <p className="text-[#A0897A] flex items-center justify-center gap-2">
+            <span>🎙️</span> Gravando com <strong className="text-[#FF6B35]">{recording.reader.name}</strong>
           </p>
         </div>
 
-        {/* Barra de progresso */}
-        <div className="w-full bg-warmth-100 rounded-full h-3 mb-6 overflow-hidden">
-          <motion.div
-            className="h-full bg-gradient-to-r from-warmth-400 to-warmth-500 rounded-full"
-            initial={{ width: 0 }}
-            animate={{ width: `${progress}%` }}
-            transition={{ duration: 0.5 }}
-          />
-        </div>
-
-        {/* Indicador de página */}
-        <div className="text-center mb-6">
-          <span className="text-sm font-semibold text-cozy-400">
-            Página {currentPageIndex + 1} de {totalPages}
-          </span>
-        </div>
-
-        {/* Card da página */}
-        <div className="card p-6 md:p-8 mb-6">
-          <div className="mb-4">
-            <h2 className="text-lg font-display font-bold text-cozy-800 mb-4 text-center">
-              Página {currentPageIndex + 1}
-            </h2>
-            <div className="bg-warmth-50 rounded-2xl p-6 min-h-[200px] flex items-center justify-center">
-              <p className="text-cozy-700 text-xl md:text-2xl leading-relaxed font-serif italic text-center">
-                {recording.book.pages?.[currentPageIndex] || 'Leia esta página em voz alta com muito carinho.'}
-              </p>
+        {/* Progress bar */}
+        <div className="recording-card p-6 md:p-8 mb-6">
+          {/* Progresso */}
+          <div className="mb-6">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-semibold text-[#A0897A]">Progresso</span>
+              <span className="text-sm font-bold text-[#FF6B35]">
+                Página {currentPageIndex + 1} de {totalPages}
+              </span>
+            </div>
+            <div className="w-full bg-[#FFF5F0] rounded-full h-4 overflow-hidden">
+              <motion.div
+                className="h-full bg-gradient-to-r from-[#FF6B35] via-[#FF6B9D] to-[#A78BFA] rounded-full"
+                initial={{ width: 0 }}
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 0.5 }}
+              />
             </div>
           </div>
 
+          {/* Page dots */}
+          <div className="flex justify-center gap-2 mb-6">
+            {Array.from({ length: totalPages }).map((_, i) => (
+              <div
+                key={i}
+                className={i === currentPageIndex ? 'page-dot-active' : 'page-dot page-dot-inactive'}
+              />
+            ))}
+          </div>
+
+          {/* Story text */}
+          <div className="bg-gradient-to-br from-[#FFF5F0] to-[#FFF0F6] rounded-2xl p-6 md:p-8 mb-6 min-h-[220px] flex items-center justify-center border border-[#FFE4D6]">
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={currentPageIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="story-text text-center max-w-lg"
+              >
+                {recording.book.pages?.[currentPageIndex] || 'Leia esta página em voz alta com muito carinho.'}
+              </motion.p>
+            </AnimatePresence>
+          </div>
+
+          {/* Countdown */}
           <AnimatePresence mode="wait">
             {countdown > 0 && (
               <motion.div
                 key="countdown"
-                initial={{ scale: 2, opacity: 1 }}
+                initial={{ scale: 3, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.5, opacity: 0 }}
-                className="text-8xl font-bold text-warmth-500 my-8"
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                className="text-8xl font-bold text-center my-8"
               >
-                {countdown}
+                <span className="bg-gradient-to-r from-[#FF6B35] to-[#FF6B9D] bg-clip-text text-transparent">
+                  {countdown}
+                </span>
               </motion.div>
             )}
           </AnimatePresence>
 
-          {/* Controles */}
+          {/* Controls */}
           <div className="flex flex-col items-center gap-4">
             {!isRecording && !audioBlob && countdown === 0 && (
-              <button
-                onClick={startRecording}
-                className="w-20 h-20 rounded-full bg-warmth-500 hover:bg-warmth-600 text-white flex items-center justify-center shadow-xl hover:shadow-2xl transition-all active:scale-95"
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: 'spring', stiffness: 200, damping: 15 }}
               >
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
-                </svg>
-              </button>
+                <button
+                  onClick={startRecording}
+                  className="btn-record"
+                >
+                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                  </svg>
+                </button>
+                <p className="text-center text-[#A0897A] text-sm mt-3">
+                  Toque para começar a gravar 🎙️
+                </p>
+              </motion.div>
             )}
 
             {isRecording && (
@@ -335,25 +393,30 @@ export default function RecordPage() {
               >
                 <button
                   onClick={stopRecording}
-                  className="w-20 h-20 rounded-full bg-red-500 hover:bg-red-600 text-white flex items-center justify-center shadow-xl transition-all"
+                  className="btn-record recording"
                 >
-                  <div className="w-8 h-8 bg-white rounded-sm" />
+                  <div className="w-8 h-8 bg-white rounded-md" />
                 </button>
-                <span className="mt-3 text-red-500 font-semibold animate-pulse">
-                  Gravando...
-                </span>
+                <div className="mt-4 flex items-center gap-2">
+                  <span className="w-3 h-3 bg-red-500 rounded-full animate-pulse" />
+                  <span className="text-red-500 font-bold">Gravando...</span>
+                </div>
               </motion.div>
             )}
 
             {audioBlob && !isRecording && (
-              <div className="w-full space-y-4">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="w-full space-y-4"
+              >
                 <div className="flex justify-center gap-4">
                   <button
                     onClick={playRecording}
-                    className={`w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-all ${
+                    className={`w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${
                       isPlaying
-                        ? 'bg-story-500 text-white'
-                        : 'bg-story-100 text-story-600 hover:bg-story-200'
+                        ? 'bg-gradient-to-br from-[#45B7D1] to-[#67E8F9] text-white'
+                        : 'bg-white text-[#45B7D1] border-2 border-[#B8E6F3] hover:bg-[#F0F8FF]'
                     }`}
                   >
                     {isPlaying ? (
@@ -369,7 +432,7 @@ export default function RecordPage() {
 
                   <button
                     onClick={redoPage}
-                    className="w-16 h-16 rounded-full bg-warmth-100 hover:bg-warmth-200 text-cozy-500 flex items-center justify-center shadow-lg transition-all"
+                    className="w-16 h-16 rounded-full bg-white text-[#A0897A] border-2 border-[#FFE4D6] hover:bg-[#FFF5F0] hover:text-[#FF6B35] flex items-center justify-center shadow-lg transition-all duration-300"
                   >
                     <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
@@ -378,8 +441,8 @@ export default function RecordPage() {
                 </div>
 
                 {duration > 0 && (
-                  <p className="text-sm text-cozy-400">
-                    {formatDuration(duration)}
+                  <p className="text-center text-sm text-[#A0897A]">
+                    ⏱️ {formatDuration(duration)}
                   </p>
                 )}
 
@@ -389,20 +452,20 @@ export default function RecordPage() {
                   className="btn-primary text-lg w-full"
                 >
                   {saving
-                    ? 'Salvando...'
+                    ? '⏳ Salvando...'
                     : currentPageIndex < totalPages - 1
-                      ? 'Salvar e próxima página →'
-                      : 'Finalizar história! 🎉'}
+                      ? '✨ Salvar e próxima página →'
+                      : '🎉 Finalizar história!'}
                 </button>
-              </div>
+              </motion.div>
             )}
           </div>
         </div>
 
         {/* Dica carinhosa */}
-        <div className="bg-warmth-50 rounded-2xl p-5 text-center">
-          <p className="text-cozy-500 text-sm">
-            💛 Dica: Leia devagar, com pausas. A criança vai ouvir sua voz muitas vezes.
+        <div className="bg-gradient-to-r from-[#FFF5F0] to-[#FFF0F6] rounded-2xl p-5 text-center border border-[#FFE4D6]">
+          <p className="text-[#6B5744] text-sm">
+            💛 <strong>Dica:</strong> Leia devagar, com pausas e carinho. A criança vai ouvir sua voz muitas vezes!
           </p>
         </div>
       </div>
