@@ -14,8 +14,12 @@ export async function GET() {
     const user = await prisma.user.findUnique({
       where: { id: payload.id },
       include: {
-        readers: true,
-        childs: true,
+        readers: {
+          include: { recordings: true },
+        },
+        childs: {
+          include: { recordings: true },
+        },
       },
     })
 
