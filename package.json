@@ -1,0 +1,37 @@
+{
+  "name": "voz-que-fica",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "db:push": "npx prisma db push",
+    "db:studio": "npx prisma studio",
+    "setup": "npx prisma db push && npx prisma db seed"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.10.0",
+    "bcryptjs": "^2.4.3",
+    "framer-motion": "^11.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "next": "^14.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "zustand": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "prisma": "^5.10.0",
+    "sharp": "^0.35.2",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  }
+}

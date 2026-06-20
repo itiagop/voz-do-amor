@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #ec7d1a;
+  --secondary: #0c8ee7;
+  --accent: #b87a46;
+  --bg-warm: #fef7ee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg-warm);
+  min-height: 100vh;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-warmth-500 hover:bg-warmth-600 text-white font-semibold py-3 px-8 rounded-2xl 
+           shadow-lg hover:shadow-xl transition-all duration-300 
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-story-500 hover:bg-story-600 text-white font-semibold py-3 px-8 rounded-2xl 
+           shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply border-2 border-warmth-500 text-warmth-600 hover:bg-warmth-50 font-semibold py-3 px-8 rounded-2xl 
+           transition-all duration-300 active:scale-95;
+  }
+
+  .card {
+    @apply bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 
+           border border-warmth-100 overflow-hidden;
+  }
+
+  .card-child {
+    @apply bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 
+           border-2 border-transparent hover:border-warmth-300 overflow-hidden
+           cursor-pointer active:scale-[0.98];
+  }
+
+  .input-field {
+    @apply w-full px-5 py-4 rounded-2xl border-2 border-warmth-200 
+           focus:border-warmth-500 focus:outline-none focus:ring-4 focus:ring-warmth-100
+           bg-white text-lg transition-all duration-300;
+  }
+
+  .input-label {
+    @apply block text-sm font-semibold text-cozy-800 mb-2 ml-1;
+  }
+
+  .page-container {
+    @apply min-h-screen bg-gradient-to-b from-warmth-50 via-white to-warmth-50;
+  }
+
+  .glass {
+    @apply bg-white/80 backdrop-blur-md rounded-3xl shadow-lg border border-white/20;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-warmth-600 via-warmth-500 to-cozy-500 bg-clip-text text-transparent;
+  }
+
+  .floating-card {
+    @apply animate-float;
+  }
+}
+
+/* Scrollbar bonitinha */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fef7ee;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #f5ba6d;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ec7d1a;
+}
+
+/* Animações de página */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms, transform 400ms;
+}

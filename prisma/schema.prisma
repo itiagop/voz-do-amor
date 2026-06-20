@@ -1,0 +1,104 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String?
+  avatar    String?
+  createdAt DateTime @default(now())
+
+  readers    Reader[]
+  childs     Child[]
+  magicLinks MagicLink[]
+}
+
+model Reader {
+  id        String   @id @default(cuid())
+  name      String
+  avatar    String?
+  relation  String?
+  createdAt DateTime @default(now())
+
+  userId     String
+  user       User      @relation(fields: [userId], references: [id])
+  recordings Recording[]
+}
+
+model Child {
+  id        String   @id @default(cuid())
+  name      String
+  avatar    String?
+  age       Int?
+  color     String   @default("#FF6B6B")
+  shareCode String?  @unique
+  createdAt DateTime @default(now())
+
+  userId     String
+  user       User      @relation(fields: [userId], references: [id])
+  recordings Recording[]
+}
+
+model Book {
+  id          String   @id @default(cuid())
+  title       String
+  author      String   @default("")
+  cover       String?
+  coverKey    String?
+  pageCount   Int      @default(0)
+  description String?
+  category    String   @default("infantil")
+  createdAt   DateTime @default(now())
+
+  recordings Recording[]
+}
+
+model Recording {
+  id        String   @id @default(cuid())
+  status    String   @default("draft")
+  shareCode String?  @unique
+
+  readerId String
+  reader   Reader @relation(fields: [readerId], references: [id])
+
+  childId  String?
+  child    Child? @relation(fields: [childId], references: [id])
+
+  bookId String
+  book   Book @relation(fields: [bookId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  pages PageRecording[]
+}
+
+model PageRecording {
+  id         String   @id @default(cuid())
+  pageNumber Int
+  audioUrl   String?
+  duration   Float    @default(0)
+  createdAt  DateTime @default(now())
+
+  recordingId String
+  recording   Recording @relation(fields: [recordingId], references: [id], onDelete: Cascade)
+}
+
+model MagicLink {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  email     String
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+  used      Boolean  @default(false)
+
+  userId String?
+  user   User? @relation(fields: [userId], references: [id])
+}
