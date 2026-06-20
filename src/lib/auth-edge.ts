@@ -1,4 +1,4 @@
-const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET || 'voz-que-fica-secret-key-2026')
+const JWT_SECRET = new TextEncoder().encode((process.env.JWT_SECRET || 'voz-que-fica-secret-key-2026').trim())
 
 export type UserPayload = {
   id: string
