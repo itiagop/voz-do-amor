@@ -21,6 +21,7 @@ type Recording = {
     id: string
     title: string
     pageCount: number
+    pages: string[] | null
   }
   reader: {
     id: string
@@ -286,16 +287,16 @@ export default function RecordPage() {
         </div>
 
         {/* Card da página */}
-        <div className="card p-8 md:p-12 text-center mb-6">
-          <div className="mb-6">
-            <span className="text-6xl block mb-4">📖</span>
-            <h2 className="text-xl font-display font-bold text-cozy-800 mb-4">
+        <div className="card p-6 md:p-8 mb-6">
+          <div className="mb-4">
+            <h2 className="text-lg font-display font-bold text-cozy-800 mb-4 text-center">
               Página {currentPageIndex + 1}
             </h2>
-            <p className="text-cozy-500 text-lg leading-relaxed">
-              Leia esta página em voz alta com muito carinho.
-              <br />A criança que ouvir vai sentir seu amor em cada palavra.
-            </p>
+            <div className="bg-warmth-50 rounded-2xl p-6 min-h-[200px] flex items-center justify-center">
+              <p className="text-cozy-700 text-xl md:text-2xl leading-relaxed font-serif italic text-center">
+                {recording.book.pages?.[currentPageIndex] || 'Leia esta página em voz alta com muito carinho.'}
+              </p>
+            </div>
           </div>
 
           <AnimatePresence mode="wait">

@@ -54,6 +54,7 @@ model Book {
   cover       String? @db.Text
   coverKey    String? @db.Text
   pageCount   Int      @default(0)
+  pages      Json?
   description String? @db.Text
   category    String   @default("infantil")
   createdAt   DateTime @default(now())
