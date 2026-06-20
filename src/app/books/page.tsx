@@ -73,12 +73,22 @@ export default function BooksPage() {
           <Link href="/dashboard" className="text-[#A0897A] hover:text-[#FF6B35] font-semibold mb-4 inline-block transition-colors">
             ← Voltar
           </Link>
-          <h1 className="text-3xl md:text-4xl font-bold text-gradient mb-2">
-            📚 Biblioteca de Histórias
-          </h1>
-          <p className="text-[#A0897A] text-lg">
-            Escolha um livro para gravar sua voz com carinho
-          </p>
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-3xl md:text-4xl font-bold text-gradient mb-2">
+                📚 Biblioteca de Histórias
+              </h1>
+              <p className="text-[#A0897A] text-lg">
+                Escolha um livro para gravar sua voz com carinho
+              </p>
+            </div>
+            <Link
+              href="/books/create"
+              className="bg-gradient-to-r from-[#A78BFA] to-[#C4B5FD] text-white font-bold px-5 py-3 rounded-full text-sm shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center gap-2"
+            >
+              ✍️ Criar história
+            </Link>
+          </div>
         </header>
 
         <div className="flex flex-col md:flex-row gap-4 mb-8">
@@ -120,10 +130,17 @@ export default function BooksPage() {
               >
                 <div className={`aspect-[3/4] bg-gradient-to-br ${categoryColors[book.category] || 'from-[#FFF5F0] to-[#FFE4D6]'} flex items-center justify-center relative`}>
                   <span className="text-7xl opacity-60 group-hover:scale-110 transition-transform duration-500 group-hover:rotate-3 inline-block">
-                    {categoryEmoji[book.category] || '📚'}
+                    {book.category === 'personalizado' ? '✍️' : categoryEmoji[book.category] || '📚'}
                   </span>
-                  <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm shadow-sm text-xs font-bold text-[#4A3728] px-3 py-1.5 rounded-full">
-                    📄 {book.pageCount} págs
+                  <div className="absolute top-3 right-3 flex items-center gap-1">
+                    {book.category === 'personalizado' && (
+                      <span className="bg-gradient-to-r from-[#FF6B9D] to-[#E8A0BF] text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
+                        ✍️ Sua
+                      </span>
+                    )}
+                    <span className="bg-white/90 backdrop-blur-sm shadow-sm text-xs font-bold text-[#4A3728] px-3 py-1.5 rounded-full">
+                      📄 {book.pageCount} págs
+                    </span>
                   </div>
                 </div>
                 <div className="p-5">

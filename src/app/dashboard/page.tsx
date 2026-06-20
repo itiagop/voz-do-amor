@@ -142,9 +142,9 @@ export default function DashboardPage() {
             </div>
             <div className="flex items-center gap-3">
               {user?.role === 'admin' && (
-                <span className="badge-sun">
+                <Link href="/admin" className="badge-sun hover:scale-105 transition-transform">
                   ⚡ Admin
-                </span>
+                </Link>
               )}
               <button
                 onClick={handleLogout}

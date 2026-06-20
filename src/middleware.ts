@@ -6,14 +6,22 @@ const publicRoutes = ['/', '/login', '/register', '/share', '/magic']
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  if (pathname.startsWith('/_next') || pathname.startsWith('/favicon') || pathname.startsWith('/uploads') || pathname.startsWith('/books') || pathname.startsWith('/api/')) {
+  // Assets estáticos sempre liberados
+  if (pathname.startsWith('/_next') || pathname.startsWith('/favicon') || pathname.startsWith('/uploads')) {
     return NextResponse.next()
   }
 
+  // APIs passam direto (cada rota cuida da própria autenticação)
+  if (pathname.startsWith('/api/')) {
+    return NextResponse.next()
+  }
+
+  // Rotas públicas
   if (publicRoutes.some((route) => pathname.startsWith(route))) {
     return NextResponse.next()
   }
 
+  // Rotas protegidas
   const token = request.cookies.get('token')?.value
 
   if (!token) {

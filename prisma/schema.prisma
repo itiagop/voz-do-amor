@@ -7,8 +7,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Setting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
+}
+
 model User {
-  id        String   @id @default(cuid())
+  id         String   @id @default(cuid())
   name      String
   email     String   @unique
   password  String?
@@ -57,6 +63,7 @@ model Book {
   pages      Json?
   description String? @db.Text
   category    String   @default("infantil")
+  createdBy   String?
   createdAt   DateTime @default(now())
 
   recordings Recording[]

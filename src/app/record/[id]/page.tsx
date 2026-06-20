@@ -6,6 +6,7 @@ import Link from 'next/link'
 import toast from 'react-hot-toast'
 import { motion, AnimatePresence } from 'framer-motion'
 import { formatDuration } from '@/lib/utils'
+import { Certificate } from '@/components/certificate'
 
 type PageRecording = {
   id: string
@@ -233,7 +234,7 @@ export default function RecordPage() {
   if (completed) {
     return (
       <div className="page-container flex items-center justify-center p-4 min-h-[80vh]">
-        <div className="max-w-md text-center">
+        <div className="max-w-lg text-center">
           <motion.div
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
@@ -247,15 +248,35 @@ export default function RecordPage() {
             transition={{ delay: 0.3 }}
           >
             <span className="badge-fun mb-4">✨ História finalizada!</span>
-            <h2 className="text-3xl font-bold text-[#4A3728] mb-3 mt-4">
+            <h2 className="text-3xl font-bold text-[#4A3728] dark:text-[#E8E0D8] mb-3 mt-4">
               Parabéns! 🎊
             </h2>
-            <p className="text-[#6B5744] text-lg mb-8 leading-relaxed">
+            <p className="text-[#6B5744] dark:text-[#C4B8A8] text-lg mb-8 leading-relaxed">
               &ldquo;{recording.book.title}&rdquo; foi gravada com a voz de{' '}
               <strong className="text-[#FF6B35]">{recording.reader.name}</strong>.
               <br />Essa história vai ficar para sempre! 💛
             </p>
+
+            <div className="mb-8">
+              <Certificate
+                bookTitle={recording.book.title}
+                readerName={recording.reader.name}
+                childName={recording.child?.name}
+              />
+            </div>
+
             <div className="flex flex-col gap-3">
+              <button
+                onClick={() => {
+                  const text = encodeURIComponent(
+                    `📚 Acabei de gravar "${recording.book.title}" com todo carinho! A voz fica para sempre 💛\n\n${window.location.origin}/listen/${recording.child?.id || ''}`
+                  )
+                  window.open(`https://wa.me/?text=${text}`, '_blank')
+                }}
+                className="btn-secondary text-lg"
+              >
+                📲 Compartilhar no WhatsApp
+              </button>
               <Link href="/dashboard" className="btn-primary text-lg">
                 Voltar ao início
               </Link>
