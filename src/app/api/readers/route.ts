@@ -11,45 +11,20 @@ export async function GET() {
       return NextResponse.json({ error: 'Não autorizado' }, { status: 401 })
     }
 
-    const readers = await prisma.reader.findMany({
-      where: { userId: user.id },
-      include: {
-        recordings: {
-          include: {
-            book: true,
-            child: true,
-          },
-        },
-      },
-    })
+    const [readers, children] = await Promise.all([
+      prisma.reader.findMany({
+        where: { userId: user.id },
+        orderBy: { createdAt: 'asc' },
+      }),
+      prisma.child.findMany({
+        where: { userId: user.id },
+        orderBy: { createdAt: 'asc' },
+      }),
+    ])
 
-    return NextResponse.json(readers)
+    return NextResponse.json({ readers, children })
   } catch (error) {
     console.error('Readers error:', error)
-    return NextResponse.json({ error: 'Erro ao buscar leitores' }, { status: 500 })
-  }
-}
-
-export async function POST(request: Request) {
-  try {
-    const user = await getUserFromCookies()
-    if (!user) {
-      return NextResponse.json({ error: 'Não autorizado' }, { status: 401 })
-    }
-
-    const data = await request.json()
-    const reader = await prisma.reader.create({
-      data: {
-        name: data.name,
-        avatar: data.avatar || null,
-        relation: data.relation || null,
-        userId: user.id,
-      },
-    })
-
-    return NextResponse.json(reader)
-  } catch (error) {
-    console.error('Create reader error:', error)
-    return NextResponse.json({ error: 'Erro ao criar leitor' }, { status: 500 })
+    return NextResponse.json({ error: 'Erro ao buscar familiares' }, { status: 500 })
   }
 }
