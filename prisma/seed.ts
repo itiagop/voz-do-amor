@@ -62,6 +62,7 @@ const books = [
 ]
 
 async function main() {
+  await prisma.book.deleteMany()
   for (const book of books) {
     await prisma.book.create({ data: book })
   }
