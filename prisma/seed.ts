@@ -208,28 +208,213 @@ const books = [
       'O príncipe usou o sapatinho para encontrar sua amada. Provou em todas as moças do reino. Quando chegou na casa de Cinderela, as irmãs tentaram usar o sapato, mas não coube. Cinderela calçou o sapatinho e serviu perfeitamente. O príncipe a reconheceu e os dois se casaram numa grande festa!',
     ],
   },
+  {
+    title: 'A Galinha Ruiva',
+    author: 'Folclore Brasileiro',
+    pageCount: 8,
+    category: 'infantil',
+    description: 'Uma galinha trabalhadeira ensina o valor da cooperação.',
+    pages: [
+      'Era uma vez uma galinha ruiva que morava em um sítio muito bonito. Ela acordava cedo todos os dias e gostava de manter tudo organizado. Seus vizinhos eram um porco, um pato e um gato.',
+      'Um dia, a galinha encontrou alguns grãos de trigo no quintal. Teve uma ideia: — Vou plantar este trigo e fazer um delicioso pão!',
+      'A galinha ruiva foi pedir ajuda: — Quem me ajuda a plantar o trigo? — Eu não! — disse o porco. — Eu não! — disse o pato. — Eu não! — disse o gato. — Então eu planto sozinha! — disse a galinha.',
+      'O trigo cresceu bonito e forte. A galinha chamou os amigos: — Quem me ajuda a colher o trigo? — Eu não! — disseram todos. A galinha colheu sozinha.',
+      'Depois levou o trigo para moer: — Quem me ajuda a moer o trigo? — Eu não! — disseram todos. Ela foi sozinha ao moinho.',
+      'Com a farinha pronta, a galinha perguntou: — Quem me ajuda a fazer o pão? — Eu não! — disseram os amigos. Ela mesma sovou a massa, esperou crescer e assou o pão.',
+      'O pão ficou dourado e cheiroso. A galinha perguntou: — Quem me ajuda a comer o pão? — Eu! Eu! Eu! — disseram todos, animados.',
+      '— Ah, não! — disse a galinha ruiva. — Quem não ajudou no trabalho, não merece o resultado. E comeu o pão delicioso com seus pintinhos. Os outros aprenderam a lição: ajudar é importante!',
+    ],
+  },
+  {
+    title: 'A Princesa e o Sapo',
+    author: 'Irmãos Grimm',
+    pageCount: 10,
+    category: 'conto de fadas',
+    description: 'Uma princesa aprende que promessas devem ser cumpridas.',
+    pages: [
+      'Era uma vez uma princesa linda que vivia em um castelo enorme. Ela tinha todos os brinquedos e vestidos que podia imaginar, mas seu objeto mais precioso era uma bola de ouro.',
+      'Todos os dias, a princesa brincava com sua bola de ouro perto de um lago no jardim do castelo. Ela jogava a bola para o alto e a pegava, rindo feliz.',
+      'Um dia, a bola escapou de suas mãos e caiu no fundo do lago. A princesa chorou desesperada. — Por que está chorando? — perguntou uma vozinha.',
+      'Era um sapo feio e verdinho. — Minha bola de ouro caiu no lago! — soluçou a princesa. — Eu posso pegar sua bola, mas em troca você vai me deixar comer no seu prato e dormir na sua cama.',
+      'A princesa concordou, mas só queria a bola de volta. O sapo mergulhou e trouxe a bola. A princesa pegou a bola e correu para o castelo, esquecendo o sapo.',
+      'No jantar, alguém bateu na porta. — Princesa, abra a porta! É o sapo! O rei ouviu e disse: — Promessa é promessa, minha filha. Deixe o sapo entrar.',
+      'O sapo entrou, comeu no prato da princesa e disse: — Agora me leve para dormir no seu quarto. A princesa, com nojo, levou o sapo para seu quarto.',
+      'No quarto, a princesa ficou com tanta raiva que pegou o sapo e o jogou contra a parede. Mas, em vez de se machucar, o sapo se transformou em um lindo príncipe!',
+      '— Uma bruxa me enfeitiçou! — explicou o príncipe. — Só o beijo de uma princesa ou um ato de coragem quebraria o feitiço. Você me jogou na parede e quebrou a maldição!',
+      'A princesa pediu desculpas e o príncipe a perdoou. Eles se apaixonaram, casaram e viveram felizes. A princesa aprendeu que toda promessa merece ser cumprida.',
+    ],
+  },
+  {
+    title: 'Os Músicos de Bremen',
+    author: 'Irmãos Grimm',
+    pageCount: 10,
+    category: 'aventura',
+    description: 'Quatro animais velhos realizam um sonho juntos.',
+    pages: [
+      'Em uma fazenda distante, vivia um burro muito velho e cansado. Seu dono não queria mais alimentá-lo. Triste, o burro decidiu fugir e realizar seu sonho: ser músico na cidade de Bremen.',
+      'No caminho, encontrou um cachorro velho deitado na estrada. — Por que está tão triste, amigo? — perguntou o burro.',
+      '— Meu dono me expulsou porque estou velho e não posso mais caçar — respondeu o cachorro. — Venha comigo! — disse o burro. — Vamos tocar música em Bremen!',
+      'Mais adiante, encontraram um gato velho sentado com cara de poucos amigos. — Estou velho e sem dentes, meu dono me abandonou — miou o gato. — Venha conosco! — convidaram.',
+      'Depois encontraram um galo que cantava para avisar o dia, mas seu dono queria transformá-lo em canja. — Venha, galo! Sua voz vai fazer falta na nossa banda!',
+      'Os quatro amigos seguiram felizes pela estrada. Mas a noite chegou e eles estavam perdidos na floresta. — Vejo uma luz lá longe! — cantou o galo. Era uma casa.',
+      'Ao se aproximarem, viram que era uma casa de ladrões. Os bandidos estavam comendo uma farta ceia. — Vamos ganhar esta casa! — disse o burro, bolando um plano.',
+      'O burro colocou as patas na janela, o cachorro subiu no burro, o gato no cachorro e o galo no gato. Todos juntos fizeram a maior confusão: o burro zurrou, o cachorro latiu, o gato miou e o galo cantou.',
+      'Os ladrões pensaram que era um monstro e fugiram apavorados! Os quatro amigos entraram, comeram a ceia deliciosa e dormiram em camas macias.',
+      'Os ladrões tentaram voltar, mas o gato arranhou, o cachorro mordeu, o burro chutou e o galo cantou. Fugiram para sempre! Os quatro amigos viveram felizes na casa, fazendo música todos os dias.',
+    ],
+  },
+  {
+    title: 'A Pequena Sereia',
+    author: 'Hans Christian Andersen',
+    pageCount: 12,
+    category: 'conto de fadas',
+    description: 'Uma sereia descobre o verdadeiro significado do amor.',
+    pages: [
+      'Lá no fundo do mar, no reino das águas cristalinas, vivia o rei dos mares com suas seis filhas sereias. A mais nova era a mais curiosa e sonhadora de todas.',
+      'A pequena sereia adorava ouvir as histórias da avó sobre o mundo dos humanos. — Lá em cima, as estrelas brilham e as flores exalam perfume — contava a avó.',
+      'No seu aniversário de 15 anos, a pequena sereia finalmente pôde subir à superfície. Ela viu um navio enorme e, dentro dele, um príncipe lindo dançando.',
+      'De repente, uma tempestade terrível surgiu. O navio quebrou e o príncipe caiu na água, desmaiado. A sereia nadou até ele e o levou para a praia, salvando sua vida.',
+      'Ela ficou ao lado do príncipe até uma jovem aparecer na praia. A sereia escondeu-se atrás das rochas e viu a moça ajudar o príncipe. Ele nunca soube que foi a sereia quem o salvou.',
+      'A pequena sereia voltou para o mar apaixonada. Ela precisava ficar perto do príncipe. Foi até a bruxa do mar, que vivia num redemoinho escuro.',
+      '— Eu posso transformar sua cauda em pernas — disse a bruxa. — Mas cada passo será como andar sobre facas. E se o príncipe se casar com outra, você virará espuma do mar!',
+      'Em troca, a bruxa queria a voz da sereia. — Sem sua voz, você não poderá cantar nem falar. Aceita? A sereia, por amor, aceitou.',
+      'A pequena sereia ganhou pernas e foi para o palácio. O príncipe achava ela linda, mas sentia falta da moça que o salvou na praia. A sereia dançava para ele, mesmo com dor.',
+      'O príncipe se casou com a moça da praia, pensando que era ela quem o havia salvo. A sereia ficou com o coração partido. Na noite do casamento, ela iria virar espuma.',
+      'Suas irmãs vieram do mar com um punhal mágico da bruxa. — Se você matar o príncipe com esta faca, voltará a ser sereia! Mas ela não conseguiu machucar quem amava.',
+      'A pequena sereia jogou o punhal no mar e se atirou nas ondas. Mas seu amor era tão puro que ela não virou espuma — virou uma filha do ar, que ganhou uma alma imortal. Seu sacrifício a tornou eterna.',
+    ],
+  },
+  {
+    title: 'A Bela Adormecida',
+    author: 'Charles Perrault',
+    pageCount: 10,
+    category: 'conto de fadas',
+    description: 'Um amor verdadeiro quebra o feitiço de cem anos.',
+    pages: [
+      'Era uma vez um rei e uma rainha que esperavam ansiosamente por um filho. Quando a princesa nasceu, fizeram uma grande festa e convidaram todas as fadas do reino.',
+      'Havia treze fadas no reino, mas os reis tinham apenas doze pratos de ouro. Então convidaram doze fadas e esqueceram a décima terceira, que era muito poderosa e vingativa.',
+      'Cada fada deu um presente à princesa: beleza, inteligência, graça, música, bondade. Quando a décima segunda fada se preparava para dar seu dom, a décima terceira apareceu furiosa.',
+      '"A princesa vai crescer linda e perfeita, mas aos dezesseis anos vai espetar o dedo em um fuso e cair morta!" — gritou a fada malvada. Todos ficaram apavorados.',
+      'A décima segunda fada, que ainda não tinha dado seu presente, amenizou a maldição: "Ela não morrerá, mas dormirá por cem anos até que um beijo de amor verdadeiro a desperte."',
+      'O rei mandou queimar todos os fusos do reino. Mas ninguém conseguiu destruir todos. No dia do seu décimo sexto aniversário, a princesa explorava o castelo e encontrou uma torre escondida.',
+      'Na torre, uma velhinha fiando. — O que é isso? — perguntou a princesa, curiosa. Ao tocar o fuso, espetou o dedo e caiu num sono profundo. O feitiço se cumpriu.',
+      'A fada bondosa fez todos no castelo dormirem também. Uma floresta de espinhos cresceu ao redor, escondendo o castelo. Muitos príncipes tentaram atravessá-la e falharam.',
+      'Cem anos se passaram. Um príncipe corajoso de outro reino ouviu a lenda e decidiu tentar. Os espinhos se abriram para ele. No castelo, encontrou todos dormindo, e no alto da torre viu a princesa.',
+      'Encantado por sua beleza, o príncipe deu um beijo na princesa. Ela acordou, e com ela todo o castelo despertou. Casaram-se e viveram felizes para sempre, provando que o amor verdadeiro supera qualquer feitiço.',
+    ],
+  },
+  {
+    title: 'O Gato de Botas',
+    author: 'Charles Perrault',
+    pageCount: 10,
+    category: 'aventura',
+    description: 'Um gato esperto faz a fortuna do seu dono.',
+    pages: [
+      'Era uma vez um velho moleiro que tinha três filhos. Quando morreu, deixou seus bens: o moinho para o mais velho, o burro para o do meio e um gato para o caçula.',
+      'O caçula ficou desolado. — De que adianta um gato? Posso fazer um par de luvas com sua pele... O gato, que era muito esperto, falou: — Não faça isso! Arranje-me um par de botas e você verá!',
+      'O jovem, sem nada a perder, deu as botas ao gato. O gato as calçou, pegou um saco e foi para o campo. Encheu o saco de farelo e pegou um coelho.',
+      'O gato levou o coelho ao palácio e disse: — Senhor rei, um presente do Marquês de Carabás (o nome inventado para seu dono). O rei ficou impressionado.',
+      'O gato continuou levando presentes ao rei. Um dia, soube que o rei passearia pela região com sua filha. Mandou o dono nadar no rio e escondeu suas roupas.',
+      'Quando a carruagem passou, o gato gritou: — Socorro! O Marquês de Carabás está se afogando! O rei reconheceu o gato e ordenou que salvassem o "marquês".',
+      'O gato disse que ladrões haviam roubado as roupas do marquês. O rei deu ao jovem as mais belas roupas. A princesa se encantou com o jovem.',
+      'O gato correu na frente da carruagem e mandou os camponeses dizerem que tudo pertencia ao Marquês de Carabás. Chegou ao castelo de um ogro que era o verdadeiro dono.',
+      'O ogro, vaidoso, se transformou em leão para impressionar o gato. — Deve ser difícil virar um rato — provocou o gato. O ogro, furioso, virou um ratinho. O gato o devorou na hora!',
+      'Quando a carruagem chegou, o gato recebeu o rei no "castelo do Marquês de Carabás". O rei, impressionado, deu a mão da princesa ao jovem. O gato virou um nobre e viveu feliz, caçando ratos só por diversão.',
+    ],
+  },
+  {
+    title: 'O Soldadinho de Chumbo',
+    author: 'Hans Christian Andersen',
+    pageCount: 10,
+    category: 'clássico',
+    description: 'Um soldadinho de uma perna só vive uma grande aventura por amor.',
+    pages: [
+      'Era uma vez um menino que ganhou uma caixa de soldadinhos de chumbo. Eram vinte e cinco soldadinhos todos iguais, com seus uniformes vermelhos e azuis e seus fuzis no ombro.',
+      'O último soldadinho era diferente: foi feito com o pouco de chumbo que sobrou e tinha apenas uma perna. Mas ele ficava tão firme em sua única perna quanto os outros nas duas.',
+      'Sobre a mesa, havia um lindo castelo de papel. Na porta, uma bailarina feita de papel e seda. Ela usava uma saia rodada e levantava as pernas tão alto que o soldadinho pensou que ela também tinha uma perna só.',
+      'O soldadinho se apaixonou perdidamente pela bailarina. — Ela é minha alma gêmea! — pensou. Mas um duende malvado que estava numa caixinha de surpresas gritou: — Esqueça, soldadinho! Ela não é para você!',
+      'O soldadinho fingiu não ouvir. No dia seguinte, o duende o derrubou da janela. O soldadinho caiu de cabeça, com o fuzil preso no ombro, e ficou na rua.',
+      'Começou a chover forte. Dois meninos encontraram o soldadinho e o colocaram num barquinho de papel. — Navegue pelo mundo, soldadinho! — disseram. O barco desceu pela enxurrada.',
+      'O barquinho foi parar num bueiro escuro. Ratos passaram correndo, mas o soldadinho não se assustou. — Mostre seu passe! — gritou um rato. O soldadinho ficou firme, em silêncio.',
+      'O barco desaguou num rio e depois no mar. Um grande peixe engoliu o soldadinho inteiro. Lá dentro era escuro e apertado. O soldadinho não desistiu, mesmo no ventre do peixe.',
+      'O peixe foi pescado e levado ao mercado. A cozinheira do menino o comprou. Quando abriu o peixe, encontrou o soldadinho! Ele foi colocado de volta na mesa do menino.',
+      'O soldadinho reencontrou sua amada bailarina. Eles se olharam emocionados. O menino, sem querer, jogou o soldadinho na lareira. O vento jogou a bailarina também. O soldadinho derreteu em forma de coração ao lado dela. O amor deles foi eterno.',
+    ],
+  },
+  {
+    title: 'Rapunzel',
+    author: 'Irmãos Grimm',
+    pageCount: 10,
+    category: 'conto de fadas',
+    description: 'Uma menina de cabelos longos presa numa torre descobre a liberdade.',
+    pages: [
+      'Era uma vez um casal que esperava um filho. A mulher grávida via no jardim da vizinha (uma bruxa poderosa) uma plantação de raponços. Ela teve um desejo incontrolável de comê-los.',
+      'O marido, para satisfazer a esposa, pulou o muro e colheu raponços. Mas a bruxa o pegou. — Pode levar todos os raponços que quiser, mas em troca, quando a criança nascer, será minha!',
+      'Quando a menina nasceu, a bruxa a levou e a chamou de Rapunzel (que significa raponço). Ela cresceu e se tornou a menina mais linda do mundo, com cabelos dourados que tocavam o chão.',
+      'Para manter Rapunzel longe do mundo, a bruxa a trancou numa torre alta no meio da floresta. A torre não tinha portas nem escadas — apenas uma janela no topo.',
+      'Quando a bruxa queria subir, gritava: — Rapunzel, jogue suas tranças! E Rapunzel soltava suas longas tranças douradas pela janela. A bruxa subia por elas.',
+      'Um dia, um príncipe passou pela floresta e ouviu Rapunzel cantar. Encantado pela voz, ele viu a bruxa subir pelas tranças. No dia seguinte, imitou a bruxa: — Rapunzel, jogue suas tranças!',
+      'Rapunzel, assustada, viu o príncipe. Mas ele era gentil e eles conversaram por horas. O príncipe voltou todos os dias, e eles se apaixonaram.',
+      'Certo dia, Rapunzel deixou escapar: — Madrinha, por que é tão mais pesado subir por você do que pelo príncipe? A bruxa descobriu tudo.',
+      'Furiosa, a bruxa cortou os cabelos de Rapunzel e a abandonou no deserto. Quando o príncipe veio, a bruxa jogou as tranças cortadas para ele subir. No topo, encontrou a bruxa, que o empurrou. Ele caiu nos espinhos e ficou cego.',
+      'O príncipe cego vagou anos pelo mundo. Um dia, ouviu uma voz conhecida cantando no deserto. Era Rapunzel! Seu choro de alegria molhou os olhos do príncipe, que recuperou a visão. Finalmente livres, voltaram ao reino e viveram felizes.',
+    ],
+  },
 ]
 
 async function main() {
-  // Delete in correct order
-  await prisma.magicLink.deleteMany()
-  await prisma.pageRecording.deleteMany()
-  await prisma.recording.deleteMany()
-  await prisma.reader.deleteMany()
-  await prisma.child.deleteMany()
-  await prisma.book.deleteMany()
-  await prisma.user.deleteMany()
-
-  for (const book of books) {
-    await prisma.book.create({ data: book })
+  const existingBooks = await prisma.book.count()
+  if (existingBooks === 0) {
+    for (const book of books) {
+      await prisma.book.create({ data: book })
+    }
+    console.log(`${books.length} livros criados com sucesso!`)
+  } else {
+    const existingTitles = (await prisma.book.findMany({ select: { title: true } })).map(b => b.title)
+    let added = 0
+    for (const book of books) {
+      if (!existingTitles.includes(book.title)) {
+        await prisma.book.create({ data: book })
+        added++
+      }
+    }
+    console.log(`${added} novos livros adicionados! Total: ${existingBooks + added}`)
   }
-  console.log(`${books.length} livros criados com sucesso!`)
 
-  const hash = await bcrypt.hash('admin123', 10)
-  await prisma.user.create({
-    data: { name: 'Administrador', email: 'admin@admin.com', password: hash, role: 'admin' },
-  })
-  console.log('Admin criado: admin@admin.com / admin123')
+  const adminExists = await prisma.user.findUnique({ where: { email: 'admin@admin.com' } })
+  if (!adminExists) {
+    const hash = await bcrypt.hash('admin123', 10)
+    await prisma.user.create({
+      data: { name: 'Administrador', email: 'admin@admin.com', password: hash, role: 'admin' },
+    })
+    console.log('Admin criado: admin@admin.com / admin123')
+  } else {
+    console.log('Admin já existe, pulando...')
+  }
+
+  const badges = [
+    { slug: 'first_recording', name: 'Primeira Gravação', description: 'Completou sua primeira gravação', icon: '🎙️', criteria: '1' },
+    { slug: 'three_recordings', name: 'Contador de Histórias', description: 'Completou 3 gravações', icon: '📖', criteria: '3' },
+    { slug: 'five_recordings', name: 'Narrador Dedicado', description: 'Completou 5 gravações', icon: '⭐', criteria: '5' },
+    { slug: 'ten_recordings', name: 'Mestre das Palavras', description: 'Completou 10 gravações', icon: '🏆', criteria: '10' },
+    { slug: 'complete_book', name: 'Livro Completo', description: 'Gravou todas as páginas de um livro', icon: '📚', criteria: 'complete_book' },
+    { slug: 'streak_3', name: 'Determinação', description: 'Manteve uma sequência de 3 dias gravando', icon: '🔥', criteria: 'streak_3' },
+    { slug: 'streak_7', name: 'Foco Total', description: 'Manteve uma sequência de 7 dias gravando', icon: '🔥', criteria: 'streak_7' },
+    { slug: 'streak_14', name: 'Inabalável', description: 'Manteve uma sequência de 14 dias gravando', icon: '💪', criteria: 'streak_14' },
+    { slug: 'three_books', name: 'Explorador', description: 'Gravou em 3 livros diferentes', icon: '🗺️', criteria: '3_books' },
+    { slug: 'donated', name: 'Coração Generoso', description: 'Fez uma doação', icon: '💛', criteria: 'donated' },
+    { slug: 'premium', name: 'Apoiador Premium', description: 'Assinou o plano premium', icon: '👑', criteria: 'premium' },
+    { slug: 'thirty_minutes', name: 'Hora do Conto', description: 'Gravou mais de 30 minutos no total', icon: '⏰', criteria: '30min' },
+    { slug: 'one_hour', name: 'Voz Incansável', description: 'Gravou mais de 1 hora no total', icon: '🎯', criteria: '1h' },
+  ]
+
+  for (const badge of badges) {
+    const exists = await prisma.badge.findUnique({ where: { slug: badge.slug } })
+    if (!exists) {
+      await prisma.badge.create({ data: badge })
+    }
+  }
+  console.log(`${badges.length} badges sincronizados!`)
 }
 
 main()

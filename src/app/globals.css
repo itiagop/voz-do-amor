@@ -165,7 +165,10 @@ body::before {
   }
 
   .glass {
-    @apply bg-[var(--bg-card)]/80 backdrop-blur-md border border-[var(--border-light)]/30;
+    background-color: color-mix(in srgb, var(--bg-card) 80%, transparent);
+    backdrop-filter: blur(12px);
+    @apply border;
+    border-color: color-mix(in srgb, var(--border-light) 30%, transparent);
     border-radius: 24px;
   }
 
